@@ -36,7 +36,7 @@ function censor() {
     const alreadyCensored = !!curValDiv.querySelector(`.${CENSOR_CLASS}`);
     curValTextDiv.style.position = "relative";
 
-    if (hasValue & !alreadyCensored) {
+    if (hasValue && !alreadyCensored) {
       const textOffset = curValTextDiv.offsetWidth;
 
       let censor = document.createElement("span");
