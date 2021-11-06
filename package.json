@@ -1,0 +1,11 @@
+{
+  "name": "pm-shhh",
+  "version": "1.0.0",
+  "description": "A Chrome extension for hiding sensitive variables in Postman for web during livestreams",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Claire Froelich",
+  "license": "ISC"
+}
