@@ -1,10 +1,8 @@
 chrome.runtime.onInstalled.addListener(function () {
-  chrome.storage.sync.set({ censor: true }, function () {
+  chrome.storage.local.set({ censor: true }, function () {
     console.log("Postman sensitive variable sensorship enabled");
   });
 });
-
-console.log("yo");
 
 chrome.tabs.onUpdated.addListener((tabId, changeInfo, tab) => {
   console.log(`Tab ${tabId} updated.`, JSON.stringify(changeInfo));
@@ -16,22 +14,16 @@ chrome.tabs.onUpdated.addListener((tabId, changeInfo, tab) => {
         files: ["./content.js"],
       })
       .then(() => {
-        // TODO remove
         console.log("Injected content script");
+
+        chrome.scripting.insertCSS({
+          target: { tabId },
+          files: ["shhh.css"],
+        });
+      })
+      .then(() => {
+        console.log("Injected css");
       })
       .catch((err) => console.log(err));
   }
 });
-
-// chrome.declarativeContent.onPageChanged.removeRules(undefined, function () {
-//   chrome.declarativeContent.onPageChanged.addRules([
-//     {
-//       conditions: [
-//         new chrome.declarativeContent.PageStateMatcher({
-//           pageUrl: { hostEquals: "www.postman.com" },
-//         }),
-//       ],
-//       actions: [new chrome.declarativeContent.ShowPageAction()],
-//     },
-//   ]);
-// });

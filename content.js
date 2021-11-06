@@ -3,6 +3,10 @@ function censor() {
     ...document.querySelectorAll('.variables-editor__content div[class$="-2"]'),
   ];
 
+  chrome.storage.local.get(["censor"], function (store) {
+    console.log("censor status: ", store.censor);
+  });
+
   const CENSOR_CLASS = "x-shh-censor";
 
   curValDivs.forEach((curValDiv) => {
