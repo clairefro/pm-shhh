@@ -36,7 +36,7 @@ You should now have the extension in your menu:
 
 ### \[Optional\] Pin the extentsion
 
-For easy access, pun the extension to your extensions bar. Click the puzzle piece icon in the Chrome extensions bar, and then the blue pin next to `pm-shhh`
+For easy access, pin the extension to your extensions bar. Click the puzzle piece icon in the Chrome extensions bar, and then the blue pin next to `pm-shhh`
 
 ## Usage
 
