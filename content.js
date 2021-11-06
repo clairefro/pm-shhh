@@ -1,15 +1,26 @@
+// TODO: Move to a config file
+const CENSOR_CLASS = "x-shh-censor";
+
+chrome.storage.onChanged.addListener(function (changes) {
+  var action = changes["censor"];
+  if (action.newValue === true) {
+    // run the censors
+    censor();
+  } else {
+    // clear the censors
+    clearCensors();
+  }
+});
+
+function clearCensors() {
+  let censors = [...document.querySelectorAll(`.${CENSOR_CLASS}`)];
+  censors.forEach((c) => c.remove());
+}
+
 function censor() {
   let curValDivs = [
     ...document.querySelectorAll('.variables-editor__content div[class$="-2"]'),
   ];
-
-  if (chrome.runtime?.id) {
-    chrome.storage.local.get(["censor"], function (store) {
-      console.log("censor status: ", store.censor);
-    });
-  }
-
-  const CENSOR_CLASS = "x-shh-censor";
 
   curValDivs.forEach((curValDiv) => {
     const curValTextDiv = curValDiv.childNodes[0];
@@ -40,14 +51,6 @@ function censor() {
     }
   });
 }
-
-chrome.storage.onChanged.addListener(function (changes) {
-  console.log({ changes });
-  // var action = changes["censor"];
-  // if (action.newValue === "executeCode") {
-  //   // YOUR CODE HERE
-  // }
-});
 
 // censor on every mouseclick/keyup
 document.addEventListener("load", censor);
