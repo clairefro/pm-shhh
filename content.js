@@ -1,12 +1,10 @@
 const CENSOR_CLASS = "x-shh-censor";
 
 chrome.storage.onChanged.addListener(async function (changes) {
-  var censorStatus = changes["censor"];
+  const censorStatus = changes["censor"];
   if (censorStatus.newValue === true) {
-    // run the censors
     censor();
   } else {
-    // clear the censors
     clearCensors();
   }
 });
