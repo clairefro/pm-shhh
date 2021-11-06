@@ -37,20 +37,17 @@ function censor() {
     curValTextDiv.style.position = "relative";
 
     if (hasValue & !alreadyCensored) {
-      const textOffset = curValTextDiv.offsetWidth;
-
       let censor = document.createElement("span");
       censor.classList.add(CENSOR_CLASS);
       censor.innerText = "👀 HIDDEN";
       censor.style.backgroundColor = "orange";
       censor.style.width = "100%";
       censor.style.height = "100%";
-      censor.style.position = "relative";
+      censor.style.position = "absolute";
       censor.style.paddingLeft = "0.5rem";
       censor.style.display = "flex";
       censor.style.justifyContent = "flex-start";
       censor.style.alignItems = "center";
-      censor.style.transform = `translateX(-${textOffset}px)`;
 
       curValTextDiv.after(censor);
     } else if (!hasValue && alreadyCensored) {
