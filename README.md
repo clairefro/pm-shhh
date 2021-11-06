@@ -16,7 +16,7 @@ In directory of your choice:
 
 ##### 2. Open Chrome extensions menu
 
-[chrome://extensions/](chrome://extensions/)
+<a href="chrome://extensions">chrome://extensions/</a>
 
 ##### Make sure Dev mode is enabled in upper right
 
