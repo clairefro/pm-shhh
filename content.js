@@ -29,29 +29,32 @@ function censor() {
 
   curValDivs.forEach((curValDiv) => {
     const curValTextDiv = curValDiv.childNodes[0];
-
     const hasValue = !!curValTextDiv.innerText;
     const alreadyCensored = !!curValDiv.querySelector(`.${CENSOR_CLASS}`);
     curValTextDiv.style.position = "relative";
 
     if (hasValue && !alreadyCensored) {
-      let censor = document.createElement("span");
-      censor.classList.add(CENSOR_CLASS);
-      censor.innerText = "👀 HIDDEN";
-      censor.style.backgroundColor = "orange";
-      censor.style.width = "100%";
-      censor.style.height = "100%";
-      censor.style.position = "absolute";
-      censor.style.paddingLeft = "0.5rem";
-      censor.style.display = "flex";
-      censor.style.justifyContent = "flex-start";
-      censor.style.alignItems = "center";
-
+      let censor = buildCensor();
       curValTextDiv.after(censor);
     } else if (!hasValue && alreadyCensored) {
       curValDiv.querySelector(`.${CENSOR_CLASS}`).remove();
     }
   });
+}
+
+function buildCensor() {
+  let censor = document.createElement("span");
+  censor.classList.add(CENSOR_CLASS);
+  censor.innerText = "👀 HIDDEN";
+  censor.style.backgroundColor = "orange";
+  censor.style.width = "100%";
+  censor.style.height = "100%";
+  censor.style.position = "absolute";
+  censor.style.paddingLeft = "0.5rem";
+  censor.style.display = "flex";
+  censor.style.justifyContent = "flex-start";
+  censor.style.alignItems = "center";
+  return censor;
 }
 
 // censor on every mouseclick/keyup
