@@ -4,6 +4,8 @@ chrome.runtime.onInstalled.addListener(function () {
   });
 });
 
+console.log("yo");
+
 chrome.declarativeContent.onPageChanged.removeRules(undefined, function () {
   chrome.declarativeContent.onPageChanged.addRules([
     {

@@ -1,5 +1,5 @@
 {
-  "manifest_version": 2,
+  "manifest_version": 3,
   "name": "pm-shhh",
   "description": "An extension for hiding sensitive variables in Postman for web during livestreams",
   "version": "1",
@@ -7,11 +7,11 @@
   "permissions": ["storage", "activeTab", "declarativeContent"],
   "content_scripts": [
     {
-      "matches": ["<all_urls>"],
-      "js": "content.js"
+      "matches": ["https://*.postman.co/*", "https://*.postman.com/*"],
+      "js": ["content.js"]
     }
   ],
-  "page_action": {
+  "action": {
     "default_popup": "index.html"
   }
 }
