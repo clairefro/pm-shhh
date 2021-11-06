@@ -3,9 +3,11 @@ function censor() {
     ...document.querySelectorAll('.variables-editor__content div[class$="-2"]'),
   ];
 
-  chrome.storage.local.get(["censor"], function (store) {
-    console.log("censor status: ", store.censor);
-  });
+  if (chrome.runtime?.id) {
+    chrome.storage.local.get(["censor"], function (store) {
+      console.log("censor status: ", store.censor);
+    });
+  }
 
   const CENSOR_CLASS = "x-shh-censor";
 
@@ -38,6 +40,14 @@ function censor() {
     }
   });
 }
+
+chrome.storage.onChanged.addListener(function (changes) {
+  console.log({ changes });
+  // var action = changes["censor"];
+  // if (action.newValue === "executeCode") {
+  //   // YOUR CODE HERE
+  // }
+});
 
 // censor on every mouseclick/keyup
 document.addEventListener("load", censor);
