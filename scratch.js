@@ -155,22 +155,22 @@ rows.forEach((r) => {
 //     );
 //   });
 
-let curValDivs = document.querySelectorAll(
-  '.variables-editor__content div[class$="-2"]'
-);
-let varRows = document.querySelectorAll(".variables-editor__content");
+// let curValDivs = document.querySelectorAll(
+//   '.variables-editor__content div[class$="-2"]'
+// );
+// let varRows = document.querySelectorAll(".variables-editor__content");
 
-function callback(mutationsList) {
-  mutationsList.forEach((mutation) => {
-    console.log(mutation);
-    if (mutation.attributeName === "class") {
-      alert("Ch-ch-ch-changes!");
-    }
-  });
-}
+// function callback(mutationsList) {
+//   mutationsList.forEach((mutation) => {
+//     console.log(mutation);
+//     if (mutation.attributeName === "class") {
+//       alert("Ch-ch-ch-changes!");
+//     }
+//   });
+// }
 
-const mutationObserver = new MutationObserver(callback);
+// const mutationObserver = new MutationObserver(callback);
 
-varRows.forEach((c) => {
-  mutationObserver.observe(c, { attributes: true, childList: true });
-});
+// varRows.forEach((c) => {
+//   mutationObserver.observe(c, { attributes: true, childList: true });
+// });

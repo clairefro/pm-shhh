@@ -3,14 +3,25 @@
   <head>
     <style>
       body {
-        width: 100px;
-        text-align: center;
+        box-sizing: border-box;
+        border: 4px solid orange;
+      }
+      #content {
+        display: flex;
+        padding: 1rem;
+        align-items: center;
+      }
+      input[type="checkbox"] {
+        margin-left: 2rem;
+        transform: scale(1.5);
       }
     </style>
   </head>
   <body>
-    <label for="toggleCensor">Censor Postman sensitive vars</label>
-    <input type="checkbox" id="toggleCensorCheckbox" checked />
+    <div id="content">
+      <label for="toggleCensor">Censor Postman sensitive vars</label>
+      <input type="checkbox" id="toggleCensorCheckbox" checked />
+    </div>
     <script src="popup.js"></script>
   </body>
 </html>

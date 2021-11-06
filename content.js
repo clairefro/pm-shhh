@@ -17,9 +17,11 @@ function clearCensors() {
 }
 
 async function censorIfEnabled() {
-  const censorEnabled = await readLocalStorage("censor");
-  if (!censorEnabled) return;
-  censor();
+  if (chrome.runtime?.id) {
+    const censorEnabled = await readLocalStorage("censor");
+    if (!censorEnabled) return;
+    censor();
+  }
 }
 
 function censor() {
