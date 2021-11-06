@@ -11,7 +11,7 @@ checkbox.addEventListener("change", function () {
       chrome.storage.local.set({ censor: false });
     }
     chrome.storage.local.get(["censor"], function (store) {
-      console.log("censor status: ", store.censor);
+      console.log("censor enabled: ", store.censor);
     });
   }
 });

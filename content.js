@@ -1,7 +1,6 @@
-// TODO: Move to a config file
 const CENSOR_CLASS = "x-shh-censor";
 
-chrome.storage.onChanged.addListener(function (changes) {
+chrome.storage.onChanged.addListener(async function (changes) {
   var censorStatus = changes["censor"];
   if (censorStatus.newValue === true) {
     // run the censors
@@ -15,6 +14,12 @@ chrome.storage.onChanged.addListener(function (changes) {
 function clearCensors() {
   let censors = [...document.querySelectorAll(`.${CENSOR_CLASS}`)];
   censors.forEach((c) => c.remove());
+}
+
+async function censorIfEnabled() {
+  const censorEnabled = await readLocalStorage("censor");
+  if (!censorEnabled) return;
+  censor();
 }
 
 function censor() {
@@ -53,6 +58,19 @@ function censor() {
 }
 
 // censor on every mouseclick/keyup
-document.addEventListener("load", censor);
-document.addEventListener("mouseup", censor);
-document.addEventListener("keyup", censor);
+document.addEventListener("load", censorIfEnabled);
+document.addEventListener("mouseup", censorIfEnabled);
+document.addEventListener("keyup", censorIfEnabled);
+
+// -- Utilities ---------------------------------------------
+async function readLocalStorage(key) {
+  return new Promise((resolve, reject) => {
+    chrome.storage.local.get([key], function (result) {
+      if (result[key] === undefined) {
+        reject();
+      } else {
+        resolve(result[key]);
+      }
+    });
+  });
+}
