@@ -2,15 +2,13 @@
   "manifest_version": 3,
   "name": "pm-shhh",
   "description": "An extension for hiding sensitive variables in Postman for web during livestreams",
-  "version": "1",
+  "version": "0.0.1",
   "author": "Claire Froelich",
-  "permissions": ["storage", "activeTab", "declarativeContent"],
-  "content_scripts": [
-    {
-      "matches": ["https://*.postman.co/*", "https://*.postman.com/*"],
-      "js": ["content.js"]
-    }
-  ],
+  "permissions": ["storage", "scripting", "activeTab", "declarativeContent"],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "host_permissions": ["https://*.postman.co/*", "https://*.postman.com/*"],
   "action": {
     "default_popup": "index.html"
   }
