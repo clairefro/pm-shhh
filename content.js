@@ -1,16 +1,12 @@
 function censor() {
-  let foos = [
-    ...document.querySelectorAll(
-      ".variables-editor__content .key-value-form-editor-sortable .key-value-form-row"
-    ),
+  let curValDivs = [
+    ...document.querySelectorAll('.variables-editor__content div[class$="-2"]'),
   ];
 
   const CENSOR_CLASS = "x-shh-censor";
 
-  foos.forEach((r) => {
-    const curValDiv = r.childNodes[1].childNodes[1].childNodes[2].childNodes[0];
+  curValDivs.forEach((curValDiv) => {
     const curValTextDiv = curValDiv.childNodes[0];
-    console.log(curValDiv.classList);
 
     const hasValue = !!curValTextDiv.innerText;
     const alreadyCensored = !!curValDiv.querySelector(`.${CENSOR_CLASS}`);
