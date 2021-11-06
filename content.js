@@ -2,8 +2,8 @@
 const CENSOR_CLASS = "x-shh-censor";
 
 chrome.storage.onChanged.addListener(function (changes) {
-  var action = changes["censor"];
-  if (action.newValue === true) {
+  var censorStatus = changes["censor"];
+  if (censorStatus.newValue === true) {
     // run the censors
     censor();
   } else {
