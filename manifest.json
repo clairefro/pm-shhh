@@ -4,7 +4,7 @@
   "description": "An extension for hiding sensitive variables in Postman for web during livestreams",
   "version": "1",
   "author": "Claire Froelich",
-  "permissions": ["activeTab", "declarativeContent"],
+  "permissions": ["storage", "activeTab", "declarativeContent"],
   "content_scripts": [
     {
       "matches": ["<all_urls>"],
