@@ -16,11 +16,11 @@ In directory of your choice:
 
 ##### 2. Open Chrome extensions menu
 
-<a href="chrome://extensions">chrome://extensions/</a>
+In Chrome URL bar, navigate to: `chrome://extensions/`
 
 ##### Make sure Dev mode is enabled in upper right
 
-<img src="https://user-images.githubusercontent.com/9841162/140598902-99206513-d9d5-4670-b693-95b58208220a.png" height="300px">
+<img src="https://user-images.githubusercontent.com/9841162/140598902-99206513-d9d5-4670-b693-95b58208220a.png" height="100px">
 
 ##### Click "Load unpacked" in upper left
 
