@@ -11,5 +11,9 @@
   "host_permissions": ["https://*.postman.co/*", "https://*.postman.com/*"],
   "action": {
     "default_popup": "index.html"
+  },
+  "icons": {
+    "16": "icons/icon16.png",
+    "48": "icons/icon48.png"
   }
 }

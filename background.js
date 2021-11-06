@@ -13,17 +13,6 @@ chrome.tabs.onUpdated.addListener((tabId, changeInfo, tab) => {
         target: { tabId: tabId },
         files: ["./content.js"],
       })
-      .then(() => {
-        console.log("Injected content script");
-
-        chrome.scripting.insertCSS({
-          target: { tabId },
-          files: ["shhh.css"],
-        });
-      })
-      .then(() => {
-        console.log("Injected css");
-      })
       .catch((err) => console.log(err));
   }
 });
