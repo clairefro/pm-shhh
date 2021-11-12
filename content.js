@@ -24,7 +24,12 @@ async function censorIfEnabled() {
 
 function censor() {
   let curValDivs = [
+    // for collection/environment variable main editors
     ...document.querySelectorAll('.variables-editor__content div[class$="-2"]'),
+    // for eye-icon preview table
+    ...document.querySelectorAll(
+      ".environment-preview-list-item .environment-preview-list-item__session-value"
+    ),
   ];
 
   curValDivs.forEach((curValDiv) => {
@@ -58,9 +63,9 @@ function buildCensor() {
 }
 
 // censor on every mouseclick/keyup
-document.addEventListener("load", censorIfEnabled);
-document.addEventListener("mouseup", censorIfEnabled);
-document.addEventListener("keyup", censorIfEnabled);
+document.addEventListener("load", () => setTimeout(censorIfEnabled, 0));
+document.addEventListener("mouseup", () => setTimeout(censorIfEnabled, 0));
+document.addEventListener("keyup", () => setTimeout(censorIfEnabled, 0));
 
 // -- Utilities ---------------------------------------------
 async function readLocalStorage(key) {
