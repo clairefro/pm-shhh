@@ -62,10 +62,9 @@ function buildCensor() {
   return censor;
 }
 
-// censor on every mouseclick/keyup
-document.addEventListener("load", () => setTimeout(censorIfEnabled, 0));
-document.addEventListener("mouseup", () => setTimeout(censorIfEnabled, 0));
-document.addEventListener("keyup", () => setTimeout(censorIfEnabled, 0));
+// censor on every DOM change
+const observer = new MutationObserver(censorIfEnabled);
+observer.observe(document, { childList: true, subtree: true });
 
 // -- Utilities ---------------------------------------------
 async function readLocalStorage(key) {
