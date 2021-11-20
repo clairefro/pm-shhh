@@ -8,7 +8,7 @@
   "background": {
     "service_worker": "background.js"
   },
-  "host_permissions": ["https://*.postman.co/*", "https://*.postman.com/*"],
+  "host_permissions": ["https://*.postman.co/workspace/*/environment/*", "https://*.postman.com/workspace/*/environment/*","https://*.postman.co/workspace/*/collection/*", "https://*.postman.com/workspace/*/collection/*"],
   "action": {
     "default_popup": "index.html"
   },
